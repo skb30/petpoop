@@ -26,23 +26,27 @@ def about():
 
 @app.route("/signup", methods=['GET','POST'])
 def signup():
-
-    if 'email' in session:
-        return redirect(url_for('home'))
-    form = SignupForm()
-
-    if request.method == 'POST':
-        if form.validate() == False:
-            return render_template('signup.html', form=form)
-        else:
-            newuser = User(form.first_name.data, form.last_name.data, form.email.data, form.password.data)
-            db.session.add(newuser)
-            db.session.commit()
-
-            session['email'] = newuser.email
+    try:
+        if 'email' in session:
             return redirect(url_for('home'))
-    elif request.method == "GET":
-        return render_template('signup.html', form=form)
+        form = SignupForm()
+
+        if request.method == 'POST':
+            if form.validate() == False:
+                return render_template('signup.html', form=form)
+            else:
+                newuser = User(form.first_name.data, form.last_name.data, form.email.data, form.password.data)
+                db.session.add(newuser)
+                db.session.commit()
+
+                session['email'] = newuser.email
+                return redirect(url_for('home'))
+        elif request.method == "GET":
+            return render_template('signup.html', form=form)
+    except:
+        return redirect(url_for('login'))
+
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
