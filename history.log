@@ -1,0 +1,100 @@
+  544  cd ..
+  545  rm petpoop/
+  546  rm -r petpoop/
+  547  pwd
+  548  vitrualenv petpoop
+  549  virtualenv petpoop
+  550  cd petpoop/
+  551  ll
+  552  cd ..
+  553  pwd
+  554  rm -rf petpoop/
+  555  cd petpoop
+  556  mkdir petpoop
+  557  cd petpoop/
+  558  virtualenv venv
+  559  ll
+  560  ls -al ../flask1_env/
+  561  cp ../flask1_env/* .
+  562  ll
+  563  source venv/bin/activate
+  564  python routes.py
+  565  pip install -r requirements.txt 
+  566  python routes.py
+  567  pwd
+  568  ll
+  569* cp ../flask1_env/templates
+  570  python routes.py
+  571  pwd
+  572  git status
+  573  git init
+  574  pwd
+  575  git status
+  576  get add
+  577  git all all
+  578  git --help
+  579  git help -a
+  580  git -A add
+  581  git add -A
+  582  git status
+  583  git commit -m "initial commit" 
+  584  git log
+  585  git remote add origin https://github.com/skb30/petpoop.git
+  586  git push -u origin master
+  587  pwd
+  588  python routes.py
+  589  git status
+  590  git add templates/home.html 
+  591  git commit -m "Added walking list" 
+  592  git push master
+  593  pwd
+  594  git status
+  595  git push
+  596  git log
+  597  python routes.py
+  598  pwd
+  599  cd venv/
+  600  ls
+  601  cd lib
+  602  cd ../include/
+  603  ls
+  604  cd ../lib
+  605  ll
+  606  pwd
+  607  cd ..
+  608  ls -al
+  609  cd bin
+  610  ll
+  611  cd ..
+  612  pip list 
+  613  find . -name"flask"
+  614  find . -name flask*
+  615  cd ../lib/
+  616  pwd
+  617  cd ..
+  618  cd ll
+  619  ll
+  620  pwd
+  621  cd venv/lib/python2.7/
+  622  ll
+  623  ls 
+  624  cd site-packages/
+  625  ll
+  626  cd flask_sqlalchemy/
+  627  ll
+  628  cat model.py
+  629  cat model.py | grep raise
+  630  kjinteractiveinteractive
+  631  pwd
+  632  cd ../sqlalchemy/
+  633  ll
+  634  find / -type f -exec grep -H 'raise' {} \;
+  635  find . -type f -exec grep -H 'raise' {} \;
+  636  history
+  637  pwd
+  638  cd ~
+  639  cd Environments/
+  640  ll
+  641  cd petpoop/
+  642  ll
+  643  history > history.log

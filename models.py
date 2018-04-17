@@ -28,6 +28,23 @@ class User(db.Model):
   def check_password(self, password):
     return check_password_hash(self.pwdhash, password)
 
+class PetProfile(db.Model):
+    __tablename__ = 'profile'
+    uid = db.Column(db.Integer, primary_key = True)
+    firstname = db.Column(db.String(100))
+    lastname = db.Column(db.String(100))
+    email = db.Column(db.String(120), unique=True)
+    dropOffDate = db.Column(db.String(10), unique=True)
+    dropOffTime = db.Column(db.String(10), unique=True)
+    def __init__(self, firstname, lastname, email, dropOffDate, dropOffTime):
+        self.firstname = firstname.title()
+        self.lastname = lastname.title()
+        self.email = email.lower()
+        self.dropOffDate = dropOffDate
+        self.dropOffTime = dropOffTime
+
+
+
 # p = Place()
 # places = p.query("1600 Amphitheater Parkway Mountain View CA")
 class Place(object):

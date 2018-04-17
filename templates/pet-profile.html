@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <main class="container signup-section">
+    <div class="section-content">
+      <h2>Pet Profile</h2>
+      <form method="post" action="/petprofile">
+        {{ form.csrf_token }}
+
+        <div class="form-group">
+          {{ form.first_name.label }}
+
+          {% if form.first_name.errors %}
+            {% for error in form.first_name.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.first_name }}
+        </div>
+        <div class="form-group">
+          {{ form.last_name.label }}
+
+          {% if form.last_name.errors %}
+            {% for error in form.last_name.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+
+          {{ form.last_name }}
+        </div>
+        <div class="form-group">
+          {{ form.email.label }}
+
+          {% if form.email.errors %}
+            {% for error in form.email.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+          {{ form.email}}
+        </div>
+        <div class="form-group">
+          {{ form.dropOffDate.label }}
+
+          {% if form.dropOffDate.errors %}
+            {% for error in form.dropOffDate.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+          {{ form.dropOffDate }}
+        </div>
+        <div class="form-group">
+          {{ form.dropOffTime.label }}
+
+          {% if form.dropOffTime.errors %}
+            {% for error in form.dropOffTime.errors %}
+              <p class="error-message">{{ error }}</p>
+            {% endfor %}
+          {% endif %}
+          {{ form.dropOffTime }}
+        </div>
+
+        {{ form.submit(class="btn-primay")}}
+
+        </form>
+      </div>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <script>
+        $(function() {
+          $('#form-group').hide(300);
+        });
+      </script>
+    </main>
+{% endblock %}

@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-from models import db, User, Place
-from forms import SignupForm, LoginForm, AddressForm
+from models import db, User, Place, PetProfile
+from forms import SignupForm, LoginForm, AddressForm, PetProfileForm
+from wtforms import DateField
+from datetime import date
+
 import pymysql
 pymysql.install_as_MySQLdb()
 
@@ -46,6 +49,23 @@ def signup():
     except:
         return redirect(url_for('login'))
 
+@app.route("/petprofile", methods=['GET','POST'])
+def petprofile():
+    # if 'email' in session:
+    #     return redirect(url_for('home'))
+    form = PetProfileForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            return render_template('pet-profile.html', form=form)
+        else:
+            petProfile = PetProfile(form.first_name.data, form.last_name.data, form.email.data, form.dropOffDate.data, form.dropOffTime.data)
+            db.session.add(petProfile)
+            db.session.commit()
+
+            return redirect(url_for('home'))
+    elif request.method == "GET":
+        return render_template('pet-profile.html', form=form)
 
 
 @app.route("/login", methods=["GET", "POST"])
